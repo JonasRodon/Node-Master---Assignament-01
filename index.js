@@ -11,6 +11,7 @@ var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
 var config = require('./config');
 var fs = require('fs');
+var _data = require('./lib/data');
 
 // Instanti#ate de HTTP server
 var httpServer = http.createServer(function (req, res) {
@@ -103,13 +104,15 @@ var unifiedServer = function (req, res) {
 var handlers = {};
 
 // Ping handler
-handlers.ping = function(data,callback){
+handlers.ping = function (data, callback) {
     callback(200);
 };
 
 // Hello handler
-handlers.hello = function(data,callback){
-    callback(200, {'hello': 'Welcome to home assignment #1 REST API server made by Jonas Rodon 🔥 '});
+handlers.hello = function (data, callback) {
+    callback(200, {
+        'hello': 'Welcome to home assignment #1 REST API server made by Jonas Rodon 🔥 '
+    });
 };
 
 // Not found handler
